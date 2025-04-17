@@ -1,9 +1,49 @@
-# helloworld
+# 群聊欢迎插件 (Group Welcome)
 
-AstrBot 插件模板
+一个特定的群聊欢迎插件，用于在新成员加入群聊时自动发送欢迎消息和图片。
+使用前请先在welcome_images放入图片！！！！！
+## 功能特点
 
-A template plugin for AstrBot plugin feature
+- 自动检测新成员加入群聊事件
+- 支持文字+图片的双重欢迎方式
+- 支持自定义欢迎消息文本
+- 支持随机选择欢迎图片
+- 群聊白名单功能，只在指定群聊中启用
+- 完整的管理命令，便于配置
 
-# 支持
 
-[帮助文档](https://astrbot.app)
+4. 在插件目录下的`welcome_images`文件夹放入图片
+5. 将欢迎图片（支持.jpg、.png、.gif格式）放入`welcome_images`文件夹
+
+## 配置说明
+
+插件支持以下配置项：
+
+- `enabled_groups`: 启用欢迎功能的群聊ID列表
+- `welcome_message`: 自定义欢迎消息文本
+
+初次使用时，插件会自动创建`welcome_images`文件夹（空的需要自己加）用于存放欢迎图片。
+
+### 插件命令
+
+| 命令 | 说明 | 权限 |
+|------|------|------|
+| `/welcome_enable [群号]` | 启用指定群聊的欢迎功能 | 管理员 |
+| `/welcome_disable [群号]` | 禁用指定群聊的欢迎功能 | 管理员 |
+| `/welcome_set 消息内容` | 设置欢迎消息文本 | 管理员 |
+| `/welcome_show` | 显示当前欢迎消息 | 所有人 |
+| `/welcome_image_enable` | 启用图片欢迎功能 | 管理员 |
+| `/welcome_image_disable` | 禁用图片欢迎功能 | 管理员 |
+| `/welcome_status` | 显示插件当前状态 | 所有人 |
+
+### 使用示例
+
+1. 在当前群聊启用欢迎功能：`/welcome_enable`
+2. 设置自定义欢迎消息：`/welcome_set 欢迎加入我们的大家庭！`
+3. 检查插件状态：`/welcome_status`
+
+## 注意事项
+
+- 如果没有在`welcome_images`文件夹中放置图片，即使启用了图片欢迎功能，也不会发送图片
+- 在私聊中使用群组相关命令时，需要指定群号参数
+- 插件仅支持QQ平台（aiocqhttp协议）的群成员增加通知
