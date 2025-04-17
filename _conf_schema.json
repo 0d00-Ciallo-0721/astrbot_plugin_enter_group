@@ -1,0 +1,17 @@
+{
+    "enabled_groups": {
+        "description": "启用欢迎功能的群聊ID列表",
+        "type": "list",
+        "hint": "请输入群号，一行一个",
+        "items": {
+            "type": "string"
+        },
+        "default": []
+    },
+    "welcome_message": {
+        "description": "欢迎消息模板",
+        "type": "string",
+        "hint": "可用变量: {mention} - @用户, {user_id} - 用户ID, {group_id} - 群ID",
+        "default": "欢迎新成员 {mention} 加入群聊！"
+    }
+}
